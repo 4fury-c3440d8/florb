@@ -63,7 +63,7 @@ class dlg_search {open : {public event_listener}
       label Search
       user_data this
       callback cb_window
-      private xywh {2111 482 500 295} type Double resizable size_range {500 295 0 0} visible
+      private xywh {2111 482 500 295} type Double resizable modal size_range {500 295 0 0} visible
     } {
       Fl_Pack {} {open
         private xywh {0 0 500 297} resizable
