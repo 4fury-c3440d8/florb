@@ -66,9 +66,9 @@ void dlg_search::cb_btn_search_ex(Fl_Widget *widget)
 
     // Construct query string
     std::ostringstream oss;
-    oss << "http://nominatim.openstreetmap.org/search/"; 
+    oss << "https://nominatim.openstreetmap.org/search?q="; 
     oss << query;
-    oss << "?format=xml";
+    oss << "&format=xml";
 
     // Download the search results
     bool ret = m_downloader->queue(oss.str(), NULL);
