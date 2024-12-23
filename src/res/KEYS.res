@@ -12,4 +12,3 @@ Editing trackpoints:
     * Left-click any trackpoint to select it
     * Left-click and drag to select multiple trackpoints
     * Hit DEL to delete selected trackpoints
-
