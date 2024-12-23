@@ -1,12 +1,14 @@
 #include <curl/curl.h>
 #include <curl/easy.h>
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp>
 #include <FL/Fl.H>
 
 #include "utils.hpp"
 #include "version.hpp"
 #include "downloader.hpp"
+
+using namespace boost::placeholders;
 
 florb::downloader::downloader(int nthreads) : 
     m_timeout(10),
@@ -221,7 +223,7 @@ void florb::downloader::worker()
     curl_easy_setopt(curl_handle, CURLOPT_HEADERFUNCTION, cb_header);
 
     curl_easy_setopt(curl_handle, CURLOPT_NOSIGNAL, 1);
-    curl_easy_setopt(curl_handle, CURLOPT_DNS_USE_GLOBAL_CACHE, 0);
+    curl_easy_setopt(curl_handle, CURLOPT_SHARE, 0);
 
     curl_easy_setopt(curl_handle, CURLOPT_TIMEOUT, timeout());
     curl_easy_setopt(curl_handle, CURLOPT_CONNECTTIMEOUT, timeout()); 
